@@ -1,0 +1,5 @@
+Bundle-Name: messageprime
+Bundle-SymbolicName: messageprime
+Bundle-Version: 1.0.0
+Export-Package: messageprime.constants
+Web-ContextPath: /messageprime

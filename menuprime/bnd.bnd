@@ -1,0 +1,5 @@
+Bundle-Name: menuprime
+Bundle-SymbolicName: menuprime
+Bundle-Version: 1.0.0
+Export-Package: menuprime.constants
+Web-ContextPath: /menuprime

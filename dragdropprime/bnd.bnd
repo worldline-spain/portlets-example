@@ -1,0 +1,5 @@
+Bundle-Name: dragdropprime
+Bundle-SymbolicName: dragdropprime
+Bundle-Version: 1.0.0
+Export-Package: dragdropprime.constants
+Web-ContextPath: /dragdropprime

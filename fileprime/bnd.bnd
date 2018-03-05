@@ -1,0 +1,5 @@
+Bundle-Name: fileprime
+Bundle-SymbolicName: fileprime
+Bundle-Version: 1.0.0
+Export-Package: fileprime.constants
+Web-ContextPath: /fileprime
