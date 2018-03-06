@@ -1,0 +1,5 @@
+Bundle-Name: inputs-theme-liferay
+Bundle-SymbolicName: inputs.theme.liferay
+Bundle-Version: 1.0.0
+Export-Package: inputs.theme.liferay.constants
+Web-ContextPath: /inputs-theme-liferay

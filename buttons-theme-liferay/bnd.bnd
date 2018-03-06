@@ -1,0 +1,5 @@
+Bundle-Name: buttons-theme-liferay
+Bundle-SymbolicName: buttons.theme.liferay
+Bundle-Version: 1.0.0
+Export-Package: buttons.theme.liferay.constants
+Web-ContextPath: /buttons-theme-liferay
