@@ -1,0 +1,5 @@
+Bundle-Name: porlet-test
+Bundle-SymbolicName: porlet.test
+Bundle-Version: 1.0.0
+Export-Package: porlet.test.constants
+Web-ContextPath: /porlet-test
