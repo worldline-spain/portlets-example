@@ -12,7 +12,7 @@ var gulpWebpack = require('webpack-stream');
 
 var package = require('./package.json');
 var MODULE_ID = package.name; // 'test-integracion-tema'
-
+var PORTLET_RELATIVE_URL = new RegExp(`/o/${MODULE_ID}/js`, 'ig');
 
 gulp.task('sass', function () {
   return gulp.src('src/main/resources/META-INF/resources/js/ap/app.scss')
@@ -69,7 +69,6 @@ gulp.task('watch', function () {
 });
 
 // Serve
-var PORTLET_RELATIVE_URL = new RegExp(`/o/${MODULE_ID}/js`, 'ig');
 gulp.task('serve', ['default', 'watch'], function () {
   browserSync.init({
     server: ['./node_modules', './www'],
