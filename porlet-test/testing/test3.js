@@ -20,6 +20,13 @@ page.open('http://localhost:8080', function (status) {
         });
 
         console.log(title);
+        page.render('test.png');
+        Liferay.on(
+          'allPortletsReady',
+          function() {
+            page.render('test-allPortletsReady.png');
+          }
+        );
         phantom.exit();
     }
     phantom.exit();
