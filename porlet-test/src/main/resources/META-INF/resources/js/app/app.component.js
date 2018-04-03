@@ -15,6 +15,7 @@ define(["require", "exports", "@angular/core", "../../services/shared.module"], 
             this.translate = translate;
             this.liferayService = liferayService;
             this.caption = 'Hello world!';
+            this.numClicks = 0;
             this.initTranslate();
         }
         AppComponent.prototype.initTranslate = function () {
@@ -22,6 +23,9 @@ define(["require", "exports", "@angular/core", "../../services/shared.module"], 
             this.translate.setDefaultLang(this.liferayService.getLanguageLiferay());
             // Set your language here
             this.translate.use(this.liferayService.getLanguageLiferay());
+        };
+        AppComponent.prototype.clicked = function () {
+            this.numClicks++;
         };
         return AppComponent;
     }());
