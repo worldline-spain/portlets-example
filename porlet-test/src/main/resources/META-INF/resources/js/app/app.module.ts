@@ -13,12 +13,6 @@ import { /* PRIME NG MODULES*/ } from 'primeng-wl/primeng';
 /* Main component */
 import { AppComponent } from './app.component';
 
-// The translate loader needs to know where to load i18n files
-// in Ionic's static asset pipeline.
-function HttpLoaderFactory(http: Http) {
-	return new TranslateHttpLoader(http, './o/porlet-test/js/assets/i18n/locale-', '.json');
-}
-
 @NgModule({
 	imports: [
 		BrowserModule,
@@ -26,13 +20,6 @@ function HttpLoaderFactory(http: Http) {
 		HttpModule,
 		SharedModule.forRoot(),
 		BrowserAnimationsModule,
-		TranslateModule.forRoot({
-			loader: {
-				provide: TranslateLoader,
-				useFactory: HttpLoaderFactory,
-				deps: [Http]
-			}
-		}),
 	],
 	declarations: [AppComponent],
 	entryComponents: [AppComponent],

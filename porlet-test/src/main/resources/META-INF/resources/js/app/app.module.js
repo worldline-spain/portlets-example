@@ -7,11 +7,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 define(["require", "exports", "@angular/core", "@angular/platform-browser", "@angular/forms", "@angular/http", "../../services/shared.module", "./app.component"], function (require, exports, core_1, platform_browser_1, forms_1, http_1, shared_module_1, app_component_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    // The translate loader needs to know where to load i18n files
-    // in Ionic's static asset pipeline.
-    function HttpLoaderFactory(http) {
-        return new shared_module_1.TranslateHttpLoader(http, './o/porlet-test/js/assets/i18n/locale-', '.json');
-    }
     var AppModule = (function () {
         function AppModule() {
         }
@@ -29,13 +24,6 @@ define(["require", "exports", "@angular/core", "@angular/platform-browser", "@an
                 http_1.HttpModule,
                 shared_module_1.SharedModule.forRoot(),
                 shared_module_1.BrowserAnimationsModule,
-                shared_module_1.TranslateModule.forRoot({
-                    loader: {
-                        provide: shared_module_1.TranslateLoader,
-                        useFactory: HttpLoaderFactory,
-                        deps: [http_1.Http]
-                    }
-                }),
             ],
             declarations: [app_component_1.AppComponent],
             entryComponents: [app_component_1.AppComponent],

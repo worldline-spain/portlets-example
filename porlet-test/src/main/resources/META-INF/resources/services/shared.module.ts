@@ -1,6 +1,7 @@
 /* CORE */
 import { NgModule, ModuleWithProviders, Provider } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Http } from '@angular/http';
 
 /* Services to share */
 import { BrowserAnimationsModule } from './animations/src/animations';
@@ -23,10 +24,24 @@ const providers: Provider[] = [
     { provide: LiferayService, useValue: new LiferayServiceImpl() }
 ];
 
+// The translate loader needs to know where to load i18n files
+// in Ionic's static asset pipeline.
+function HttpLoaderFactory(http: Http) {
+	return new TranslateHttpLoader(http, './o/porlet-test/js/assets/i18n/locale-', '.json');
+}
+
 @NgModule({
     imports: [
-        CommonModule
-    ]
+        CommonModule,
+        TranslateModule.forRoot({
+          loader: {
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [Http]
+          }
+        })
+    ],
+    exports: [TranslateModule]
 })
 
 /* Exports */
