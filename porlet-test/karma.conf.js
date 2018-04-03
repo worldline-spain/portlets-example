@@ -5,7 +5,7 @@ var webpackConfig = require('./config/webpack.config.test');
 
 var package = require('./package.json');
 var MODULE_ID = package.name;
-var PORTLET_RELATIVE_URL = new RegExp(`/o/${MODULE_ID}/((.+\.html)|(.+\.json)|(.+\.css))`, 'ig');
+var PORTLET_RELATIVE_URL = new RegExp(`/o/${MODULE_ID}/(.+)`, 'ig');
 var SOURCE_ROOT = 'src/main/resources/META-INF/resources';
 
 module.exports = function (config) {
@@ -17,8 +17,8 @@ module.exports = function (config) {
       require('karma-webpack'),
       require('karma-jasmine'),
       require('karma-sourcemap-loader'),
-      require('karma-chrome-launcher'),
-      // require('karma-phantomjs-launcher'),
+      // require('karma-chrome-launcher'),
+      require('karma-phantomjs-launcher'),
       require('karma-jasmine-html-reporter'),
       // require('karma-coverage-istanbul-reporter'),
       {
@@ -47,6 +47,7 @@ module.exports = function (config) {
     //   fixWebpackSourcePaths: true
     // },
     files: [
+      { pattern: 'node_modules/babel-polyfill/browser.js', instrument: false},
       SOURCE_ROOT + '/js/polyfills.ts',
       'node_modules/zone.js/dist/long-stack-trace-zone.js', // 'TypeError: Cannot read property 'assertPresent' of undefined'
       'node_modules/zone.js/dist/proxy.js', // 'TypeError: Cannot read property 'assertPresent' of undefined'
@@ -54,7 +55,7 @@ module.exports = function (config) {
       'node_modules/zone.js/dist/jasmine-patch.js', // 'TypeError: Cannot read property 'assertPresent' of undefined'
       'node_modules/zone.js/dist/async-test.js', // 'TypeError: Cannot read property 'assertPresent' of undefined'
       'node_modules/zone.js/dist/fake-async-test.js', // 'TypeError: Cannot read property 'assertPresent' of undefined'
-      SOURCE_ROOT + '/**/*.(html|css|json)',
+      SOURCE_ROOT + '/**/*.html',
       SOURCE_ROOT + '/**/*.spec.ts'
     ],
     // exclude: [
@@ -70,8 +71,8 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
-    // browsers: ['PhantomJS'],
-    singleRun: false
+    // browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
+    singleRun: true
   });
 };
