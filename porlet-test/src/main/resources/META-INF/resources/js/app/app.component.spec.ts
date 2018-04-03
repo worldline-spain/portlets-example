@@ -76,7 +76,6 @@ describe('AppComponent', () => {
    */
   it('Contains an increment button', () => {
     var el = fixture.nativeElement.querySelector('#clicker');
-    console.log('Element', el);
     expect(el).not.toBeNull();
   });
 
